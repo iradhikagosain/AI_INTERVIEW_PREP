@@ -33,7 +33,10 @@ SECRET_KEY = 'django-insecure-j9^fshbjg3iw8(k@i)b97pp*1oh$us*k6jp^_v-_x2pg9z25#n
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS').split(',')
+from decouple import config
+
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', config('RENDER_EXTERNAL_HOSTNAME', default='your-domain.onrender.com')]
+
 
 
 

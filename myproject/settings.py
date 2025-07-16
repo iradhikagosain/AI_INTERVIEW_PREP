@@ -98,6 +98,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 SESSION_COOKIE_SECURE = True  # For production
 CSRF_COOKIE_SECURE = True
+CSRF_TRUSTED_ORIGINS = [
+    'https://aiinterviewprep-production.up.railway.app',
+]
+
 
 # EMAIL
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

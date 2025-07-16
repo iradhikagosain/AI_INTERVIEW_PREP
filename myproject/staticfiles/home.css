@@ -1,0 +1,122 @@
+/*what we offer*/
+.card {
+  transition: all 0.4s ease;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.card:hover {
+  background-color: #e6f4ff;
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 8px 16px rgba(0, 123, 255, 0.2);
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  transition: all 0.3s ease-in-out;
+}
+/*our progress*/
+.our_results h2{
+    text-align: center;
+    margin-top: 60px;
+}
+.bars .card-body h5{
+    font-size: 2.5rem;
+    text-align: center;
+}
+.bars .card-body p{
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: 500;
+}
+.bars .card {
+  transition: transform 0.5s ease, box-shadow 0.5s ease, background-color 0.5s;
+  border-radius: 12px;
+  background-color: #fff;
+  position: relative;
+  z-index: 1;
+}
+.bars .card:hover {
+  transform: perspective(1000px) rotateX(5deg) rotateY(5deg) scale(1.05);
+  box-shadow: 0 15px 35px rgba(0, 123, 255, 0.4),
+              0 0 25px rgba(0, 123, 255, 0.3);
+  background-color: #e6f4ff;
+}
+/*ace-info*/
+.ace_info{
+    width: 100%;
+    height: 200px;
+    margin-top: 80px;
+    text-align: center;
+    color: white;
+    background-color: blue;
+}
+.ace_info h2{
+  padding-top: 40px;
+  font-weight: 900;
+}
+
+
+/*how it works*/
+
+.works .card-title{
+    margin-top: 7px;
+    font-size: 1.5rem;
+    text-align: center;
+    color: black;
+    font-weight:bold;
+
+}
+.works .card-text{
+    
+    font-size: 1rem;
+    text-align: center;
+    color: black;
+    
+
+}
+.works h2{
+    text-align: center;
+    margin-top: 60px;
+}
+.my-icon{
+    color: #007bff;
+    
+}
+.mock {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+.mycard {
+  position: relative;
+  overflow: hidden;
+}
+
+.mycard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  transform: skewX(-20deg);
+}
+
+.mycard:hover::before {
+  animation: shine 1s ease;
+}
+
+@keyframes shine {
+  100% {
+    left: 125%;
+  }
+}
+
+

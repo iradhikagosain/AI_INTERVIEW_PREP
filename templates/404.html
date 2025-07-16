@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}404 - Page Not Found{% endblock %}
+
+{% block content %}
+  <div class="container text-center py-5">
+    <h1 class="display-4">404</h1>
+    <h2>Oops! Page Not Found.</h2>
+    <p>The page you are looking for might have been removed or is temporarily unavailable.</p>
+
+    <!-- Lottie Animation -->
+    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script>
+   <div class="lottie-container">
+  <dotlottie-wc 
+    src="https://lottie.host/4cd21387-4e38-4b2d-ac91-77259d123da4/Unpefu0g5Z.lottie"
+    class="my-lottie"
+    speed="1"
+    autoplay
+    style="width: 700px; height: 350px;margin-left:300px" 
+    loop>
+  </dotlottie-wc>
+</div>
+
+    <a href="{% url 'home' %}" class="btn btn-primary mt-3">Back to Home</a>
+  </div>
+{% endblock %}

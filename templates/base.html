@@ -1,0 +1,135 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}AI INTERVIEW PREP{% endblock %}</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    <!--external css file-->
+    <link rel="stylesheet" href="{% static 'home.css' %}" />
+    <link rel="stylesheet" href="{% static 'contact.css' %}" />
+    <link rel="stylesheet" href="{% static 'base.css' %}" />
+    <link rel="stylesheet" href="{% static 'login.css' %}" />
+
+    <!--font awesome-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Lottie Player -->
+    <script
+      src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
+      type="module"
+    ></script>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-body">
+      <div class="container-fluid">
+        <img
+          src="https://i.pinimg.com/736x/f0/48/9c/f0489ceb101a4bb4f8fd6f6f2c9e2762.jpg"
+          alt="logo"
+          width="95"
+          height="56"
+        />
+        <a class="navbar-brand fw-bold text-primary" href="/home"
+          >AI Interview Prep</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'upload_resume' %}">Upload Resume</a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'admin_login' %}" class="nav-link">Admin</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact">Contact</a>
+            </li>
+
+            {% if user.is_authenticated%}
+            <li class="nav-item">
+              <a href="{% url 'edit_profile' %}" class="nav-link"
+                >Edit Profile</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'delete_account' %}" class="nav-link"
+                >Delete Account</a
+              >
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          {% if user.is_authenticated %}
+          <form
+            method="POST"
+            action="{% url 'logout' %}"
+            style="display: inline"
+          >
+            {% csrf_token %}
+            <button type="submit" class="btn btn-outline-primary">
+              Logout
+            </button>
+          </form>
+          {% else %}
+          <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
+          <a href="{% url 'register' %}" class="btn btn-primary">Signup</a>
+          {% endif %}
+        </div>
+      </div>
+    </nav>
+    {% block content %} {% endblock %}
+
+    <div class="footer">
+      <div class="container">
+        <div class="row justify-content-center text-center">
+          <div class="col-md-6 footer_card">
+            <i class="fa-brands fa-grav fa-4x our-icon"></i>
+            <a class="navbar-brand fw-bold text-white" href="/home">
+              <h1>AI Interview Prep</h1>
+            </a>
+            <h2>Get Started With Your Preparation With Personal AI</h2>
+          </div>
+        </div>
+        <div class="row justify-content-center mt-4">
+          <div class="col-md-6 email">
+            <form class="d-flex justify-content-center">
+              <input type="email" placeholder="xyz@gmail.com" required />
+              <button class="btn btn-light ms-2 effect-btn">Try Now</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

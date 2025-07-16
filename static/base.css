@@ -1,0 +1,48 @@
+.footer {
+  margin-top: 100px;
+  width: 100%;
+  height: auto;
+  background-color: blue !important;
+  color: white;
+  padding: 40px 0;
+}
+
+.footer_card {
+  color: white;
+  text-align: center;
+}
+
+.footer_card h1 {
+  font-weight: bolder;
+}
+
+.footer_card h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.our-icon {
+  padding-top: 20px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.email {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.email input {
+  width: 300px;
+  height: 40px;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.email button {
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+  margin-left: 10px;
+}

@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+
+{% block title %}Home | AI INTERVIEW PREP{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="hero_section mt-0 text-center">
+  <h1 class="fw-bold text-primary mt-0">
+    Ace Your Interview Preparation With AI
+  </h1>
+  <p class="fw-semibold">
+    "Get Personalized Interview preparation, resume feedback, and mock interviews powered by Gemini AI"
+  </p>
+
+  <dotlottie-player
+    src="https://lottie.host/093de432-8b47-49e1-97bb-25c76f226872/u7a5E63MQa.lottie"
+    background="transparent"
+    speed="1"
+    style="width: 100%; max-width: 1500px; height:480px"
+    loop
+    autoplay
+  ></dotlottie-player>
+
+  <div class="d-grid col-2 mx-auto">
+    <a href="{% url 'register' %}" class="btn btn-primary">Get Started</a>
+  </div>
+</div>
+
+<!-- What We Offer Cards -->
+<div class="container mt-5">
+  <h2 class="text-center mb-4 text-black"><b>What We Offer</b></h2>
+  <div class="row justify-content-center gap-3">
+    <div class="card col-md-3 p-3 shadow-sm">
+      <div class="card-body">
+        <h5 class="card-title text-primary">Career Roadmap</h5>
+        <p class="card-text">
+          Discover suitable roles and growth paths aligned with your skills and interests.
+        </p>
+      </div>
+    </div>
+
+    <div class="card col-md-3 p-3 shadow-sm">
+      <div class="card-body">
+        <h5 class="card-title text-primary">Resume Analysis</h5>
+        <p class="card-text">
+          Receive instant feedback on your resume with improvement suggestions for better recruiter impact.
+        </p>
+      </div>
+    </div>
+
+    <div class="card col-md-3 p-3 shadow-sm">
+      <div class="card-body">
+        <h5 class="card-title text-primary">Mock Interviews</h5>
+        <p class="card-text">
+          Experience real-time mock interviews and receive detailed performance analysis and tips.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Our Progress-->
+<div class="our_results">
+<h2 ><b>Our Results</b></h2>
+<div class="bars">
+  <div class="row justify-content-center gap-3 mt-5">
+    <div class="card col-md-3 p-3 shadow-sm">
+      <div class="card-body">
+        <h5 class="card-title text-primary">10,000+</h5>
+        <p class="card-text">
+         Career Path Suggested
+        </p>
+      </div>
+    </div>
+
+    <div class="card col-md-3 p-3 shadow-sm">
+      <div class="card-body">
+        <h5 class="card-title text-primary">5,000+</h5>
+        <p class="card-text">
+          Resumes Analyzed
+        </p>
+      </div>
+    </div>
+
+    <div class="card col-md-3 p-3 shadow-sm">
+      <div class="card-body">
+        <h5 class="card-title text-primary">1,000+</h5>
+        <p class="card-text">
+         Mock Interviews Taken
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="ace_info">
+  <h2>Ready to Ace Your Next Interview</h2>
+  <h4>Join thousands of users and boost your success with AI</h4>
+</div>
+
+<!--How it works-->
+<div class="works">
+  <h2 ><b>Our Steps</b></h2>
+ <div class="row justify-content-center gap-lg-5 mt-5 ">
+    <div class="card col-md-3 p-3 shadow-sm border-0 mycard">
+      <div class="card-body text-center">
+        <i class="fa-solid fa-file-arrow-up fa-4x my-icon"></i>
+        <h5 class="card-title">Upload Resume</h5>
+        <p class="card-text">
+         Just drag and drop your resume,our AI reads it instantly
+        </p>
+      </div>
+    </div>
+
+    <div class="card col-md-3 p-3 shadow-sm border-0 mycard">
+      <div class="card-body text-center">
+        <i class="fa-solid fa-comments fa-4x my-icon"></i>
+        <h5 class="card-title">Get AI Feedback</h5>
+        <p class="card-text">
+         Receive targeted insights and improvement tips
+        </p>
+      </div>
+    </div>
+</div>
+<div class="mock">
+  <div class="card col-md-3 p-3 shadow-sm border-0 justify-content-center mycard">
+    <div class="card-body text-center">
+     <i class="fa-solid fa-user-tie fa-4x my-icon"></i>
+      <h5 class="card-title">Take Mock Interview</h5>
+      <p class="card-text">
+        Practice and perfect your answers with mock sessions
+      </p>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

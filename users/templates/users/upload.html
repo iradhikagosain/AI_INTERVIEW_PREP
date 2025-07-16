@@ -1,0 +1,87 @@
+{% extends 'base.html' %} {% block title %}Upload Resume{% endblock %}
+
+{% block content %}
+<div
+  class="container py-5 d-flex flex-column align-items-center justify-content-center"
+>
+  <!-- Load Lottie Script -->
+  <script
+    src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js"
+    type="module"
+  ></script>
+
+  {% if not qas %}
+  <div
+    id="loadingContainer"
+    style="display: none; flex-direction: column; align-items: center"
+  >
+    <dotlottie-wc
+      src="https://lottie.host/662d4484-4706-44da-b37f-1cabdd3a84c0/J21chwVfQ6.lottie"
+      style="width: 350px; height: 250px"
+      speed="1"
+      autoplay
+      loop
+    >
+    </dotlottie-wc>
+    <p class="mt-3 text-primary fw-bold">Generating questions, please wait…</p>
+  </div>
+  {% endif %} 
+  
+  {% if not qas %}
+  <!-- Upload Card -->
+  <div class="card shadow p-4 mt-5" style="max-width: 700px; width: 100%">
+    <h2 class="mb-4 text-center text-primary">Upload Your Resume</h2>
+
+    <form method="post" enctype="multipart/form-data" id="resumeForm">
+      {% csrf_token %} {{ form.as_p }}
+      <div class="d-grid">
+        <button type="submit" class="btn btn-primary btn-block">Upload</button>
+      </div>
+    </form>
+  </div>
+  {% endif %}
+
+ 
+  <!-- Questions Card -->
+{% if qas %}
+<div class="card shadow p-4 mt-5" style="max-width: 1000px; width: 100%">
+  <h3 class="mb-3 text-primary text-center">Generated Interview Questions</h3>
+
+  <div class="accordion" id="faqAccordion">
+    {% for qa in qas %}
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="heading{{ forloop.counter }}">
+        <button class="accordion-button collapsed" type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapse{{ forloop.counter }}"
+          aria-expanded="false"
+          aria-controls="collapse{{ forloop.counter }}">
+          {{ qa.question }}
+        </button>
+      </h2>
+      <div id="collapse{{ forloop.counter }}" class="accordion-collapse collapse"
+        aria-labelledby="heading{{ forloop.counter }}"
+        data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          {{ qa.answer }}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+
+</div>
+
+<!-- JS to handle animation swap -->
+<script>
+  const form = document.getElementById("resumeForm");
+  const loadingContainer = document.getElementById("loadingContainer");
+
+  form.addEventListener("submit", function () {
+   
+    loadingContainer.style.display = "flex";
+  });
+</script>
+{% endblock %}

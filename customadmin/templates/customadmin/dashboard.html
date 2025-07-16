@@ -1,0 +1,32 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+  <h2>User Signups in Last 30 Days (Bar Chart)</h2>
+  <canvas id="signupChart" width="350" height="150"></canvas>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const ctx = document.getElementById('signupChart').getContext('2d');
+    const signupChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: {{ dates|safe }},
+        datasets: [{
+          label: 'Signups',
+          data: {{ counts|safe }},
+          backgroundColor: 'rgba(75, 192, 192, 0.5)',
+          borderColor: 'rgba(75, 192, 192, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          x: { title: { display: true, text: 'Date' } },
+          y: { title: { display: true, text: 'Users Joined' }, beginAtZero: true }
+        }
+      }
+    });
+  </script>
+{% endblock %}

@@ -14,9 +14,9 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
-    config('RENDER_EXTERNAL_HOSTNAME', default='your-domain.onrender.com')
+    'your-domain.onrender.com',
+    'aiinterviewprep-production.up.railway.app',  
 ]
-
 # APPS
 INSTALLED_APPS = [
     'adminlte3',
@@ -84,7 +84,7 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-# ✅ STATIC FILES (FIX)
+#  STATIC FILES (FIX)
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
